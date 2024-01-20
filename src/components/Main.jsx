@@ -1,15 +1,18 @@
-// import AddNewExpenseModal from './AddNewExpenseModal'
+import AddNewExpenseModal from './AddNewExpenseModal'
+import { useDataContext } from '../context/Context'
 import AddNewExpenseButton from './AddNewExpenseButton'
 import BudgetDetails from './BudgetDetails'
 import Expenses from './Expenses'
 
 const Main = () => {
+	const context = useDataContext()
+
 	return (
 		<main>
 			<BudgetDetails />
-			<AddNewExpenseButton />
+			<AddNewExpenseButton setShowModal={context.setShowModal} />
 			<Expenses />
-			{/* <AddNewExpenseModal /> */}
+			{context.showModal && <AddNewExpenseModal />}
 		</main>
 	)
 }

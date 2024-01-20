@@ -1,12 +1,15 @@
 import Header from './components/Header'
 import Main from './components/Main'
+import { DataProvider } from './context/Context'
 
 const App = () => {
 	return (
-		<div className='relative'>
-			<Header />
-			<Main />
-		</div>
+		<DataProvider>
+			<div className='relative'>
+				<Header />
+				<Main />
+			</div>
+		</DataProvider>
 	)
 }
 
