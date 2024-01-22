@@ -25,12 +25,20 @@ const DataProvider = (prop) => {
 		localStorage.setItem('expenses', JSON.stringify(newExpenses))
 	}
 
+	const total = expenses.reduce(
+		(total, item) => total + Number(item.amount),
+		0
+	)
+	const remaining = 2000 - total
+
 	const data = {
 		expenses,
 		showModal,
 		setShowModal,
 		updateExpenses,
 		deleteExpense,
+		total,
+		remaining,
 	}
 
 	return (

@@ -16,6 +16,11 @@ const AddNewExpenseModal = () => {
 			return
 		}
 
+		if (amount > data.remaining) {
+			alert('Amount cannot be more than remaining amount')
+			return
+		}
+
 		const newExpense = {
 			id: nanoid(),
 			title,
